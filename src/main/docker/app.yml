@@ -1,0 +1,19 @@
+version: '2'
+services:
+    sindhu-app:
+        image: sindhu
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://sindhu-postgresql:5432/sindhu
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=sindhu-elasticsearch:9300
+        ports:
+            - 8080:8080
+    sindhu-postgresql:
+        extends:
+            file: postgresql.yml
+            service: sindhu-postgresql
+    sindhu-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: sindhu-elasticsearch

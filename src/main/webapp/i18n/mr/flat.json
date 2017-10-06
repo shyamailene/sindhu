@@ -1,0 +1,25 @@
+{
+    "sindhuApp": {
+        "flat" : {
+            "home": {
+                "title": "Flats",
+                "createLabel": "नवीन Flat तयार करा",
+                "createOrEditLabel": "Flat तयार किंवा संपादित करा",
+                "search": "Flat शोधा"
+            },
+            "created": "Flat [identifier: {{ param }}] तयार आहे",
+            "updated": "Flat [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Flat [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Flat [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Flat"
+            },
+            "flatId": "Flat Id",
+            "flatDesc": "Flat Desc",
+            "blockId": "Block Id",
+            "blockflat": "Blockflat"
+        }
+    }
+}

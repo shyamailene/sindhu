@@ -1,0 +1,23 @@
+{
+    "sindhuApp": {
+        "block" : {
+            "home": {
+                "title": "Blocks",
+                "createLabel": "नवीन Block तयार करा",
+                "createOrEditLabel": "Block तयार किंवा संपादित करा",
+                "search": "Block शोधा"
+            },
+            "created": "Block [identifier: {{ param }}] तयार आहे",
+            "updated": "Block [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Block [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Block [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Block"
+            },
+            "blockDesc": "Block Desc",
+            "blockId": "Block Id"
+        }
+    }
+}

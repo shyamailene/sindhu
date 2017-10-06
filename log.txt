@@ -1,0 +1,129 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sindhu 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:1.5.4.RELEASE:run (default-cli) > test-compile @ sindhu >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:copy-resources (default-resources) @ sindhu ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] Copying 13 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ sindhu ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] Copying 13 resources
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ sindhu ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.9:prepare-agent (pre-unit-tests) @ sindhu ---
+[INFO] argLine set to -javaagent:C:\\Users\\ailene\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.7.9\\org.jacoco.agent-0.7.9-runtime.jar=destfile=C:\\Users\\ailene\\sindhu\\target\\test-results\\coverage\\jacoco\\jacoco.exec -Djava.security.egd=file:/dev/./urandom -Xmx256m
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:compile (default-compile) @ sindhu ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 94 source files to C:\Users\ailene\sindhu\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ sindhu ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:testCompile (default-testCompile) @ sindhu ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to C:\Users\ailene\sindhu\target\test-classes
+[INFO] 
+[INFO] <<< spring-boot-maven-plugin:1.5.4.RELEASE:run (default-cli) < test-compile @ sindhu <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.5.4.RELEASE:run (default-cli) @ sindhu ---
+[INFO] Attaching agents: []
+Ignoring Class-Path entry lib/snakeyaml-1.13.jar found inC:\Users\ailene\.m2\repository\org\liquibase\liquibase-core\3.5.3\liquibase-core-3.5.3.jar as C:\Users\ailene\.m2\repository\org\liquibase\liquibase-core\3.5.3\lib\snakeyaml-1.13.jar does not exist
+20:37:54.621 [main] DEBUG org.springframework.boot.devtools.settings.DevToolsSettings - Included patterns for restart : []
+20:37:54.629 [main] DEBUG org.springframework.boot.devtools.settings.DevToolsSettings - Excluded patterns for restart : [/spring-boot-starter/target/classes/, /spring-boot-autoconfigure/target/classes/, /spring-boot-starter-[\w-]+/, /spring-boot/target/classes/, /spring-boot-actuator/target/classes/, /spring-boot-devtools/target/classes/]
+20:37:54.630 [main] DEBUG org.springframework.boot.devtools.restart.ChangeableUrls - Matching URLs for reloading : [file:/C:/Users/ailene/sindhu/target/classes/]
+
+        ??? ???   ??? ????????? ????????   ??????? ????????? ????????? ????????
+        ??? ???   ??? ????????? ????????? ???????? ????????? ????????? ?????????
+        ??? ?????????    ???    ????????? ???????     ???    ???????   ?????????
+  ???   ??? ?????????    ???    ????????   ???????    ???    ???????   ????????
+  ????????? ???   ??? ????????? ???       ????????    ???    ????????? ???  ????
+   ???????  ???   ??? ????????? ???       ???????     ???    ????????? ???   ???
+
+:: JHipster ?  :: Running Spring Boot 1.5.4.RELEASE ::
+:: https://jhipster.github.io ::
+
+2017-09-24 20:37:57.736  INFO 10124 --- [  restartedMain] com.ncl.sindhu.SindhuApp                 : Starting SindhuApp on ILA5ACUNHL with PID 10124 (C:\Users\ailene\sindhu\target\classes started by ailene in C:\Users\ailene\sindhu)
+2017-09-24 20:37:57.739 DEBUG 10124 --- [  restartedMain] com.ncl.sindhu.SindhuApp                 : Running with Spring Boot v1.5.4.RELEASE, Spring v4.3.9.RELEASE
+2017-09-24 20:37:57.740  INFO 10124 --- [  restartedMain] com.ncl.sindhu.SindhuApp                 : The following profiles are active: swagger,dev
+2017-09-24 20:37:58.610 DEBUG 10124 --- [kground-preinit] org.jboss.logging                        : Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2017-09-24 20:38:06.622 DEBUG 10124 --- [  restartedMain] c.ncl.sindhu.config.AsyncConfiguration   : Creating Async Task Executor
+2017-09-24 20:38:09.374 DEBUG 10124 --- [  restartedMain] c.e.c.E.ncl.sindhu.domain.User           : Initialize successful.
+2017-09-24 20:38:09.436 DEBUG 10124 --- [  restartedMain] c.e.c.E.ncl.sindhu.domain.Authority      : Initialize successful.
+2017-09-24 20:38:09.455 DEBUG 10124 --- [  restartedMain] c.e.c.E.n.s.domain.User.authorities      : Initialize successful.
+2017-09-24 20:38:09.469 DEBUG 10124 --- [  restartedMain] c.e.c.E.n.sindhu.domain.PersistentToken  : Initialize successful.
+2017-09-24 20:38:09.477 DEBUG 10124 --- [  restartedMain] c.e.c.E.n.s.d.User.persistentTokens      : Initialize successful.
+2017-09-24 20:38:09.487 DEBUG 10124 --- [  restartedMain] c.e.c.E.n.s.domain.SocialUserConnection  : Initialize successful.
+2017-09-24 20:38:09.495 DEBUG 10124 --- [  restartedMain] c.e.c.E.ncl.sindhu.domain.Block          : Initialize successful.
+2017-09-24 20:38:09.508 DEBUG 10124 --- [  restartedMain] c.e.c.E.ncl.sindhu.domain.Flat           : Initialize successful.
+2017-09-24 20:38:10.222 DEBUG 10124 --- [  restartedMain] c.n.sindhu.config.MetricsConfiguration   : Registering JVM gauges
+2017-09-24 20:38:10.278 DEBUG 10124 --- [  restartedMain] c.n.sindhu.config.MetricsConfiguration   : Monitoring the datasource
+2017-09-24 20:38:10.280 DEBUG 10124 --- [  restartedMain] c.n.sindhu.config.MetricsConfiguration   : Initializing Metrics JMX reporting
+2017-09-24 20:38:14.908 DEBUG 10124 --- [  restartedMain] com.ncl.sindhu.config.WebConfigurer      : Registering CORS filter
+2017-09-24 20:38:15.468  INFO 10124 --- [  restartedMain] com.ncl.sindhu.config.WebConfigurer      : Web application configuration, using profiles: swagger
+2017-09-24 20:38:15.472 DEBUG 10124 --- [  restartedMain] com.ncl.sindhu.config.WebConfigurer      : Initializing Metrics registries
+2017-09-24 20:38:15.481 DEBUG 10124 --- [  restartedMain] com.ncl.sindhu.config.WebConfigurer      : Registering Metrics Filter
+2017-09-24 20:38:15.484 DEBUG 10124 --- [  restartedMain] com.ncl.sindhu.config.WebConfigurer      : Registering Metrics Servlet
+2017-09-24 20:38:15.493  INFO 10124 --- [  restartedMain] com.ncl.sindhu.config.WebConfigurer      : Web application fully configured
+2017-09-24 20:38:16.341 DEBUG 10124 --- [  restartedMain] c.n.sindhu.config.DatabaseConfiguration  : Configuring Liquibase
+2017-09-24 20:38:16.361  WARN 10124 --- [ndhu-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Starting Liquibase asynchronously, your database might not be ready at startup!
+2017-09-24 20:38:23.507 ERROR 10124 --- [ndhu-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Liquibase could not start correctly, your database is NOT ready: Validation Failed:
+     1 change sets check sum
+          config/liquibase/changelog/00000000000000_initial_schema.xml::00000000000001::jhipster was: 7:02ec0cbecc0a8f1b1d081ad596250592 but is now: 7:cb5d529e023e818d47ca69f1cd51a3d5
+
+
+liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          config/liquibase/changelog/00000000000000_initial_schema.xml::00000000000001::jhipster was: 7:02ec0cbecc0a8f1b1d081ad596250592 but is now: 7:cb5d529e023e818d47ca69f1cd51a3d5
+
+	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:266)
+	at liquibase.Liquibase.update(Liquibase.java:210)
+	at liquibase.Liquibase.update(Liquibase.java:192)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:431)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:388)
+	at io.github.jhipster.config.liquibase.AsyncSpringLiquibase.initDb(AsyncSpringLiquibase.java:82)
+	at io.github.jhipster.config.liquibase.AsyncSpringLiquibase.lambda$afterPropertiesSet$0(AsyncSpringLiquibase.java:64)
+	at io.github.jhipster.async.ExceptionHandlingAsyncTaskExecutor.lambda$createWrappedRunnable$1(ExceptionHandlingAsyncTaskExecutor.java:66)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+2017-09-24 20:38:28.437 DEBUG 10124 --- [  restartedMain] c.n.s.config.social.SocialConfiguration  : Configuring GoogleConnectionFactory
+2017-09-24 20:38:28.485 DEBUG 10124 --- [  restartedMain] c.n.s.config.social.SocialConfiguration  : Configuring FacebookConnectionFactory
+2017-09-24 20:38:28.493 DEBUG 10124 --- [  restartedMain] c.n.s.config.social.SocialConfiguration  : Configuring TwitterConnectionFactory
+2017-09-24 20:39:01.569 DEBUG 10124 --- [  restartedMain] i.g.j.c.apidoc.SwaggerConfiguration      : Starting Swagger
+2017-09-24 20:39:01.591 DEBUG 10124 --- [  restartedMain] i.g.j.c.apidoc.SwaggerConfiguration      : Started Swagger in 20 ms
+2017-09-24 20:39:05.886  INFO 10124 --- [  restartedMain] com.ncl.sindhu.SindhuApp                 : Started SindhuApp in 71.196 seconds (JVM running for 73.217)
+2017-09-24 20:39:05.895  INFO 10124 --- [  restartedMain] com.ncl.sindhu.SindhuApp                 : 
+----------------------------------------------------------
+	Application 'sindhu' is running! Access URLs:
+	Local: 		http://localhost:8080
+	External: 	http://192.168.56.1:8080
+	Profile(s): 	[swagger, dev]
+----------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:03 min
+[INFO] Finished at: 2017-09-24T20:39:07+05:30
+[INFO] Final Memory: 55M/412M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:1.5.4.RELEASE:run (default-cli) on project sindhu: Could not exec java: Application finished with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+Terminate batch job (Y/N)? 
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? 

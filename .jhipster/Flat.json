@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "blockflat",
+            "otherEntityName": "block",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "blockId"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "flatId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flatDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "blockId",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170924150629",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "flat",
+    "pagination": "no"
+}
