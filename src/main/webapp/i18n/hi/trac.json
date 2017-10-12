@@ -1,0 +1,24 @@
+{
+    "sindhuApp": {
+        "trac" : {
+            "home": {
+                "title": "Tracs",
+                "createLabel": "नया Trac बनाएँ",
+                "createOrEditLabel": "Trac बनाएँ या संपादित करें",
+                "search": "Trac खोजें"
+            },
+            "created": "एक नया Trac [identifier: {{ param }}] तैयार है",
+            "updated": "एक Trac [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Trac [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Trac [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Trac"
+            },
+            "subject": "Subject",
+            "type": "Type",
+            "description": "Description"
+        }
+    }
+}

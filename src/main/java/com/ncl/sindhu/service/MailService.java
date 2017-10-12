@@ -2,6 +2,7 @@ package com.ncl.sindhu.service;
 
 import com.ncl.sindhu.domain.User;
 
+import com.ncl.sindhu.security.SecurityUtils;
 import io.github.jhipster.config.JHipsterProperties;
 
 import org.apache.commons.lang3.CharEncoding;
@@ -114,5 +115,24 @@ public class MailService {
         String content = templateEngine.process("socialRegistrationValidationEmail", context);
         String subject = messageSource.getMessage("email.social.registration.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendEmail(User user) {
+        log.debug("Sending email to '{}'");
+        sendEmail(user,"issueEmail", "email.activation.title");
+    }
+
+    @Async
+    public void sendEmail(User user, String templateName, String titleKey) {
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable(USER, user);
+        context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
+        String content = templateEngine.process(templateName, context);
+        System.out.println("test"+content);
+        String subject = messageSource.getMessage(titleKey, null, locale);
+        sendEmail("shyamraoa@gmail.com", subject, content, false, true);
+
     }
 }

@@ -1,0 +1,25 @@
+{
+    "sindhuApp": {
+        "mails" : {
+            "home": {
+                "title": "Mails",
+                "createLabel": "नवीन Mails तयार करा",
+                "createOrEditLabel": "Mails तयार किंवा संपादित करा",
+                "search": "Mails शोधा"
+            },
+            "created": "Mails [identifier: {{ param }}] तयार आहे",
+            "updated": "Mails [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Mails [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Mails [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Mails"
+            },
+            "from": "From",
+            "subject": "Subject",
+            "mail": "Mail",
+            "recdate": "Recdate"
+        }
+    }
+}

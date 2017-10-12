@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="sindhuApp.mails.detail.title">Mails</span> {{vm.mails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sindhuApp.mails.from">From</span></dt>
+        <dd>
+            <span>{{vm.mails.from}}</span>
+        </dd>
+        <dt><span data-translate="sindhuApp.mails.subject">Subject</span></dt>
+        <dd>
+            <span>{{vm.mails.subject}}</span>
+        </dd>
+        <dt><span data-translate="sindhuApp.mails.mail">Mail</span></dt>
+        <dd>
+            <span>{{vm.mails.mail}}</span>
+        </dd>
+        <dt><span data-translate="sindhuApp.mails.recdate">Recdate</span></dt>
+        <dd>
+            <span>{{vm.mails.recdate | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="mails-detail.edit({id:vm.mails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

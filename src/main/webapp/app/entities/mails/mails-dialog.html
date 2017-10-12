@@ -1,0 +1,78 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMailsLabel" data-translate="sindhuApp.mails.home.createOrEditLabel">Create or edit a Mails</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.mails.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.mails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="sindhuApp.mails.from" for="field_from">From</label>
+            <input type="text" class="form-control" name="from" id="field_from"
+                    ng-model="vm.mails.from"
+                    required/>
+            <div ng-show="editForm.from.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.from.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="sindhuApp.mails.subject" for="field_subject">Subject</label>
+            <input type="text" class="form-control" name="subject" id="field_subject"
+                    ng-model="vm.mails.subject"
+                    required/>
+            <div ng-show="editForm.subject.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.subject.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="sindhuApp.mails.mail" for="field_mail">Mail</label>
+            <input type="text" class="form-control" name="mail" id="field_mail"
+                    ng-model="vm.mails.mail"
+                    required/>
+            <div ng-show="editForm.mail.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.mail.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="sindhuApp.mails.recdate" for="field_recdate">Recdate</label>
+                <div class="input-group">
+                    <input id="field_recdate" type="text" class="form-control" name="recdate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.mails.recdate" is-open="vm.datePickerOpenStatus.recdate"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('recdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.recdate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.recdate.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

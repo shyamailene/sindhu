@@ -45,6 +45,8 @@ public class CacheConfiguration {
             cm.createCache(com.ncl.sindhu.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
             cm.createCache(com.ncl.sindhu.domain.Block.class.getName(), jcacheConfiguration);
             cm.createCache(com.ncl.sindhu.domain.Flat.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ncl.sindhu.domain.Trac.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ncl.sindhu.domain.Mails.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

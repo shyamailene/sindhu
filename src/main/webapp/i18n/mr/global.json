@@ -9,6 +9,8 @@
                 "main": "एंटिटीज़",
                 "block": "Block",
                 "flat": "Flat",
+                "trac": "Trac",
+                "mails": "Mails",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
