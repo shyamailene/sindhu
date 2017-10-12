@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.ncl.sindhu</groupId>
-    <artifactId>sindhu</artifactId>
+    <artifactId>nclsindhu</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Sindhu</name>
