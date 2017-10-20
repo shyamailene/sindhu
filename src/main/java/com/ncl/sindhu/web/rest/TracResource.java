@@ -78,7 +78,7 @@ public class TracResource {
         tracSearchRepository.save(result);
         String userid= SecurityUtils.getCurrentUserLogin();
         User user=userRepository.findOneByLogin(userid).get();
-        mailService.sendEmail(user);
+        mailService.sendEmail(user,trac);
 
         return ResponseEntity.created(new URI("/api/tracs/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

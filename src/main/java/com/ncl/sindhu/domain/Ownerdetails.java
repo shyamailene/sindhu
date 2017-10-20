@@ -10,13 +10,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Flat.
+ * A Ownerdetails.
  */
 @Entity
-@Table(name = "flat")
+@Table(name = "ownerdetails")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "flat")
-public class Flat implements Serializable {
+@Document(indexName = "ownerdetails")
+public class Ownerdetails implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,15 +26,15 @@ public class Flat implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "flat_id", nullable = false)
-    private String flatId;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "flat_desc")
-    private String flatDesc;
-
-    @ManyToOne(optional = false)
     @NotNull
-    private Block blockflat;
+    @Column(name = "mobile", nullable = false)
+    private String mobile;
+
+    @ManyToOne
+    private Flat flat;
 
     public Long getId() {
         return id;
@@ -44,43 +44,43 @@ public class Flat implements Serializable {
         this.id = id;
     }
 
-    public String getFlatId() {
-        return flatId;
+    public String getName() {
+        return name;
     }
 
-    public Flat flatId(String flatId) {
-        this.flatId = flatId;
+    public Ownerdetails name(String name) {
+        this.name = name;
         return this;
     }
 
-    public void setFlatId(String flatId) {
-        this.flatId = flatId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getFlatDesc() {
-        return flatDesc;
+    public String getMobile() {
+        return mobile;
     }
 
-    public Flat flatDesc(String flatDesc) {
-        this.flatDesc = flatDesc;
+    public Ownerdetails mobile(String mobile) {
+        this.mobile = mobile;
         return this;
     }
 
-    public void setFlatDesc(String flatDesc) {
-        this.flatDesc = flatDesc;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
-    public Block getBlockflat() {
-        return blockflat;
+    public Flat getFlat() {
+        return flat;
     }
 
-    public Flat blockflat(Block block) {
-        this.blockflat = block;
+    public Ownerdetails flat(Flat flat) {
+        this.flat = flat;
         return this;
     }
 
-    public void setBlockflat(Block block) {
-        this.blockflat = block;
+    public void setFlat(Flat flat) {
+        this.flat = flat;
     }
 
     @Override
@@ -91,11 +91,11 @@ public class Flat implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Flat flat = (Flat) o;
-        if (flat.getId() == null || getId() == null) {
+        Ownerdetails ownerdetails = (Ownerdetails) o;
+        if (ownerdetails.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), flat.getId());
+        return Objects.equals(getId(), ownerdetails.getId());
     }
 
     @Override
@@ -105,10 +105,10 @@ public class Flat implements Serializable {
 
     @Override
     public String toString() {
-        return "Flat{" +
+        return "Ownerdetails{" +
             "id=" + getId() +
-            ", flatId='" + getFlatId() + "'" +
-            ", flatDesc='" + getFlatDesc() + "'" +
+            ", name='" + getName() + "'" +
+            ", mobile='" + getMobile() + "'" +
             "}";
     }
 }

@@ -11,6 +11,7 @@
                 "flat": "Flat",
                 "trac": "Trac",
                 "mails": "Mails",
+                "ownerdetails": "Ownerdetails",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -4,6 +4,7 @@ import com.ncl.sindhu.SindhuApp;
 
 import com.ncl.sindhu.domain.Trac;
 import com.ncl.sindhu.repository.TracRepository;
+import com.ncl.sindhu.repository.UserRepository;
 import com.ncl.sindhu.repository.search.TracSearchRepository;
 import com.ncl.sindhu.web.rest.errors.ExceptionTranslator;
 
@@ -54,6 +55,9 @@ public class TracResourceIntTest {
     private TracSearchRepository tracSearchRepository;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -72,7 +76,7 @@ public class TracResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        TracResource tracResource = new TracResource(tracRepository, tracSearchRepository);
+        TracResource tracResource = new TracResource(tracRepository, tracSearchRepository,userRepository);
         this.restTracMockMvc = MockMvcBuilders.standaloneSetup(tracResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

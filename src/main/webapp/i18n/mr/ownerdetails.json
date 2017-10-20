@@ -1,0 +1,24 @@
+{
+    "sindhuApp": {
+        "ownerdetails" : {
+            "home": {
+                "title": "Ownerdetails",
+                "createLabel": "नवीन Ownerdetails तयार करा",
+                "createOrEditLabel": "Ownerdetails तयार किंवा संपादित करा",
+                "search": "Ownerdetails शोधा"
+            },
+            "created": "Ownerdetails [identifier: {{ param }}] तयार आहे",
+            "updated": "Ownerdetails [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Ownerdetails [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Ownerdetails [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Ownerdetails"
+            },
+            "name": "Name",
+            "mobile": "Mobile",
+            "flat": "Flat"
+        }
+    }
+}

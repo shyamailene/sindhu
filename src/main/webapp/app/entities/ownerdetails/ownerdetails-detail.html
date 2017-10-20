@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="sindhuApp.ownerdetails.detail.title">Ownerdetails</span> {{vm.ownerdetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sindhuApp.ownerdetails.name">Name</span></dt>
+        <dd>
+            <span>{{vm.ownerdetails.name}}</span>
+        </dd>
+        <dt><span data-translate="sindhuApp.ownerdetails.mobile">Mobile</span></dt>
+        <dd>
+            <span>{{vm.ownerdetails.mobile}}</span>
+        </dd>
+        <dt><span data-translate="sindhuApp.ownerdetails.flat">Flat</span></dt>
+        <dd>
+            <a ui-sref="flat-detail({id:vm.ownerdetails.flat.id})">{{vm.ownerdetails.flat.flat}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="ownerdetails-detail.edit({id:vm.ownerdetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

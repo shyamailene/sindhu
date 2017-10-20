@@ -9,53 +9,73 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('flat', {
+        .state('ownerdetails', {
             parent: 'entity',
-            url: '/flat',
+            url: '/ownerdetails?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'sindhuApp.flat.home.title'
+                pageTitle: 'sindhuApp.ownerdetails.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/flat/flats.html',
-                    controller: 'FlatController',
+                    templateUrl: 'app/entities/ownerdetails/ownerdetails.html',
+                    controller: 'OwnerdetailsController',
                     controllerAs: 'vm'
                 }
             },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
             resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('flat');
+                    $translatePartialLoader.addPart('ownerdetails');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('flat-detail', {
-            parent: 'flat',
-            url: '/flat/{id}',
+        .state('ownerdetails-detail', {
+            parent: 'ownerdetails',
+            url: '/ownerdetails/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'sindhuApp.flat.detail.title'
+                pageTitle: 'sindhuApp.ownerdetails.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/flat/flat-detail.html',
-                    controller: 'FlatDetailController',
+                    templateUrl: 'app/entities/ownerdetails/ownerdetails-detail.html',
+                    controller: 'OwnerdetailsDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('flat');
+                    $translatePartialLoader.addPart('ownerdetails');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Flat', function($stateParams, Flat) {
-                    return Flat.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'Ownerdetails', function($stateParams, Ownerdetails) {
+                    return Ownerdetails.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'flat',
+                        name: $state.current.name || 'ownerdetails',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
@@ -63,22 +83,22 @@
                 }]
             }
         })
-        .state('flat-detail.edit', {
-            parent: 'flat-detail',
+        .state('ownerdetails-detail.edit', {
+            parent: 'ownerdetails-detail',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/flat/flat-dialog.html',
-                    controller: 'FlatDialogController',
+                    templateUrl: 'app/entities/ownerdetails/ownerdetails-dialog.html',
+                    controller: 'OwnerdetailsDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Flat', function(Flat) {
-                            return Flat.get({id : $stateParams.id}).$promise;
+                        entity: ['Ownerdetails', function(Ownerdetails) {
+                            return Ownerdetails.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -88,79 +108,79 @@
                 });
             }]
         })
-        .state('flat.new', {
-            parent: 'flat',
+        .state('ownerdetails.new', {
+            parent: 'ownerdetails',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/flat/flat-dialog.html',
-                    controller: 'FlatDialogController',
+                    templateUrl: 'app/entities/ownerdetails/ownerdetails-dialog.html',
+                    controller: 'OwnerdetailsDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                flatId: null,
-                                flatDesc: null,
+                                name: null,
+                                mobile: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('flat', null, { reload: 'flat' });
+                    $state.go('ownerdetails', null, { reload: 'ownerdetails' });
                 }, function() {
-                    $state.go('flat');
+                    $state.go('ownerdetails');
                 });
             }]
         })
-        .state('flat.edit', {
-            parent: 'flat',
+        .state('ownerdetails.edit', {
+            parent: 'ownerdetails',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/flat/flat-dialog.html',
-                    controller: 'FlatDialogController',
+                    templateUrl: 'app/entities/ownerdetails/ownerdetails-dialog.html',
+                    controller: 'OwnerdetailsDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Flat', function(Flat) {
-                            return Flat.get({id : $stateParams.id}).$promise;
+                        entity: ['Ownerdetails', function(Ownerdetails) {
+                            return Ownerdetails.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('flat', null, { reload: 'flat' });
+                    $state.go('ownerdetails', null, { reload: 'ownerdetails' });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('flat.delete', {
-            parent: 'flat',
+        .state('ownerdetails.delete', {
+            parent: 'ownerdetails',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/flat/flat-delete-dialog.html',
-                    controller: 'FlatDeleteController',
+                    templateUrl: 'app/entities/ownerdetails/ownerdetails-delete-dialog.html',
+                    controller: 'OwnerdetailsDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Flat', function(Flat) {
-                            return Flat.get({id : $stateParams.id}).$promise;
+                        entity: ['Ownerdetails', function(Ownerdetails) {
+                            return Ownerdetails.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('flat', null, { reload: 'flat' });
+                    $state.go('ownerdetails', null, { reload: 'ownerdetails' });
                 }, function() {
                     $state.go('^');
                 });

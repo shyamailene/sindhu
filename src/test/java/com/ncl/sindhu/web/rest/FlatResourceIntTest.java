@@ -45,9 +45,6 @@ public class FlatResourceIntTest {
     private static final String DEFAULT_FLAT_DESC = "AAAAAAAAAA";
     private static final String UPDATED_FLAT_DESC = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_BLOCK_ID = 1;
-    private static final Integer UPDATED_BLOCK_ID = 2;
-
     @Autowired
     private FlatRepository flatRepository;
 
@@ -89,8 +86,7 @@ public class FlatResourceIntTest {
     public static Flat createEntity(EntityManager em) {
         Flat flat = new Flat()
             .flatId(DEFAULT_FLAT_ID)
-            .flatDesc(DEFAULT_FLAT_DESC)
-            .blockId(DEFAULT_BLOCK_ID);
+            .flatDesc(DEFAULT_FLAT_DESC);
         // Add required entity
         Block blockflat = BlockResourceIntTest.createEntity(em);
         em.persist(blockflat);
@@ -122,7 +118,6 @@ public class FlatResourceIntTest {
         Flat testFlat = flatList.get(flatList.size() - 1);
         assertThat(testFlat.getFlatId()).isEqualTo(DEFAULT_FLAT_ID);
         assertThat(testFlat.getFlatDesc()).isEqualTo(DEFAULT_FLAT_DESC);
-        assertThat(testFlat.getBlockId()).isEqualTo(DEFAULT_BLOCK_ID);
 
         // Validate the Flat in Elasticsearch
         Flat flatEs = flatSearchRepository.findOne(testFlat.getId());
@@ -178,8 +173,7 @@ public class FlatResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(flat.getId().intValue())))
             .andExpect(jsonPath("$.[*].flatId").value(hasItem(DEFAULT_FLAT_ID.toString())))
-            .andExpect(jsonPath("$.[*].flatDesc").value(hasItem(DEFAULT_FLAT_DESC.toString())))
-            .andExpect(jsonPath("$.[*].blockId").value(hasItem(DEFAULT_BLOCK_ID)));
+            .andExpect(jsonPath("$.[*].flatDesc").value(hasItem(DEFAULT_FLAT_DESC.toString())));
     }
 
     @Test
@@ -194,8 +188,7 @@ public class FlatResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(flat.getId().intValue()))
             .andExpect(jsonPath("$.flatId").value(DEFAULT_FLAT_ID.toString()))
-            .andExpect(jsonPath("$.flatDesc").value(DEFAULT_FLAT_DESC.toString()))
-            .andExpect(jsonPath("$.blockId").value(DEFAULT_BLOCK_ID));
+            .andExpect(jsonPath("$.flatDesc").value(DEFAULT_FLAT_DESC.toString()));
     }
 
     @Test
@@ -218,8 +211,7 @@ public class FlatResourceIntTest {
         Flat updatedFlat = flatRepository.findOne(flat.getId());
         updatedFlat
             .flatId(UPDATED_FLAT_ID)
-            .flatDesc(UPDATED_FLAT_DESC)
-            .blockId(UPDATED_BLOCK_ID);
+            .flatDesc(UPDATED_FLAT_DESC);
 
         restFlatMockMvc.perform(put("/api/flats")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -232,7 +224,6 @@ public class FlatResourceIntTest {
         Flat testFlat = flatList.get(flatList.size() - 1);
         assertThat(testFlat.getFlatId()).isEqualTo(UPDATED_FLAT_ID);
         assertThat(testFlat.getFlatDesc()).isEqualTo(UPDATED_FLAT_DESC);
-        assertThat(testFlat.getBlockId()).isEqualTo(UPDATED_BLOCK_ID);
 
         // Validate the Flat in Elasticsearch
         Flat flatEs = flatSearchRepository.findOne(testFlat.getId());
@@ -292,8 +283,7 @@ public class FlatResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(flat.getId().intValue())))
             .andExpect(jsonPath("$.[*].flatId").value(hasItem(DEFAULT_FLAT_ID.toString())))
-            .andExpect(jsonPath("$.[*].flatDesc").value(hasItem(DEFAULT_FLAT_DESC.toString())))
-            .andExpect(jsonPath("$.[*].blockId").value(hasItem(DEFAULT_BLOCK_ID)));
+            .andExpect(jsonPath("$.[*].flatDesc").value(hasItem(DEFAULT_FLAT_DESC.toString())));
     }
 
     @Test

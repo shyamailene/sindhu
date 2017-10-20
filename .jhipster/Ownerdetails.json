@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "flat",
+            "otherEntityName": "flat",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "flat"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171017094701",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "ownerdetails",
+    "pagination": "pager"
+}

@@ -22,10 +22,6 @@
         {
             "fieldName": "flatDesc",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "blockId",
-            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20170924150629",

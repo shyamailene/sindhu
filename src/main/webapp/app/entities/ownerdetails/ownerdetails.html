@@ -1,20 +1,20 @@
 <div>
-    <h2 data-translate="sindhuApp.flat.home.title">Flats</h2>
+    <h2 data-translate="sindhuApp.ownerdetails.home.title">Ownerdetails</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="flat.new" >
+                <button class="btn btn-primary" ui-sref="ownerdetails.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs-down"  data-translate="sindhuApp.flat.home.createLabel">
-                        Create new Flat
+                    <span class="hidden-xs-down"  data-translate="sindhuApp.ownerdetails.home.createLabel">
+                        Create new Ownerdetails
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sindhuApp.flat.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sindhuApp.ownerdetails.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -34,38 +34,38 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="sindhuApp.flat.flatId">Flat Id</span></th>
-                    <th><span data-translate="sindhuApp.flat.flatDesc">Flat Desc</span></th>
-                    <th><span data-translate="sindhuApp.flat.blockflat">Blockflat</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="sindhuApp.ownerdetails.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mobile"><span data-translate="sindhuApp.ownerdetails.mobile">Mobile</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="flat.flat"><span data-translate="sindhuApp.ownerdetails.flat">Flat</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="flat in vm.flats track by flat.id">
-                    <td><a ui-sref="flat-detail({id:flat.id})">{{flat.id}}</a></td>
-                    <td>{{flat.flatId}}</td>
-                    <td>{{flat.flatDesc}}</td>
+                <tr ng-repeat="ownerdetails in vm.ownerdetails track by ownerdetails.id">
+                    <td><a ui-sref="ownerdetails-detail({id:ownerdetails.id})">{{ownerdetails.id}}</a></td>
+                    <td>{{ownerdetails.name}}</td>
+                    <td>{{ownerdetails.mobile}}</td>
                     <td>
-                        <a ui-sref="block-detail({id:flat.blockflat.id})">{{flat.blockflat.blockId}}</a>
+                        <a ui-sref="flat-detail({id:ownerdetails.flat.id})">{{ownerdetails.flat.flatDesc}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="flat-detail({id:flat.id})"
+                                    ui-sref="ownerdetails-detail({id:ownerdetails.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="flat.edit({id:flat.id})"
+                                    ui-sref="ownerdetails.edit({id:ownerdetails.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="flat.delete({id:flat.id})"
+                                    ui-sref="ownerdetails.delete({id:ownerdetails.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
@@ -76,4 +76,8 @@
             </tbody>
         </table>
     </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
 </div>

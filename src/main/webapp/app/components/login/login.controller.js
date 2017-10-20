@@ -58,6 +58,8 @@
             }).catch(function () {
                 vm.authenticationError = true;
             });
+            console.log('errpr ;pgom');
+            $state.go('dashboard');
         }
 
         function register () {

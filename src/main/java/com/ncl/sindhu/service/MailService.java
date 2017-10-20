@@ -1,5 +1,6 @@
 package com.ncl.sindhu.service;
 
+import com.ncl.sindhu.domain.Trac;
 import com.ncl.sindhu.domain.User;
 
 import com.ncl.sindhu.security.SecurityUtils;
@@ -33,6 +34,8 @@ public class MailService {
     private static final String USER = "user";
 
     private static final String BASE_URL = "baseUrl";
+
+    private static final String TRAC = "trac";
 
     private final JHipsterProperties jHipsterProperties;
 
@@ -118,21 +121,49 @@ public class MailService {
     }
 
     @Async
-    public void sendEmail(User user) {
+    public void sendEmail(User user,Trac trac) {
         log.debug("Sending email to '{}'");
-        sendEmail(user,"issueEmail", "email.activation.title");
+        sendEmail(user,"issueEmail", "email.trac.title", trac);
     }
 
     @Async
-    public void sendEmail(User user, String templateName, String titleKey) {
+    public void sendEmail(User user, String templateName, String titleKey, Trac trac) {
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
         context.setVariable(USER, user);
-        context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
+        context.setVariable(TRAC, trac);
         String content = templateEngine.process(templateName, context);
         System.out.println("test"+content);
         String subject = messageSource.getMessage(titleKey, null, locale);
-        sendEmail("shyamraoa@gmail.com", subject, content, false, true);
+        if(user.getEmail()!=null&&user.getEmail().trim().length()!=0)
+            sendEmailWithCC("shyamraoa@gmail.com", subject, content, false, true,user.getEmail());
+        else
+            sendEmail("shyamraoa@gmail.com", subject, content, false, true);
 
+    }
+
+    @Async
+    public void sendEmailWithCC(String to, String subject, String content, boolean isMultipart, boolean isHtml,String cc) {
+        log.debug("Send email[multipart '{}' and html '{}'] to '{}' with subject '{}' and content={}",
+            isMultipart, isHtml, to, subject, content);
+
+        // Prepare message using a Spring helper
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, isMultipart, CharEncoding.UTF_8);
+            message.setTo(to);
+            message.setCc(cc);
+            message.setFrom(jHipsterProperties.getMail().getFrom());
+            message.setSubject(subject);
+            message.setText(content, isHtml);
+            javaMailSender.send(mimeMessage);
+            log.debug("Sent email to User '{}'", to);
+        } catch (Exception e) {
+            if (log.isDebugEnabled()) {
+                log.warn("Email could not be sent to user '{}'", to, e);
+            } else {
+                log.warn("Email could not be sent to user '{}': {}", to, e.getMessage());
+            }
+        }
     }
 }
